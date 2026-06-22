@@ -1,0 +1,108 @@
+import type { GalleryItem } from '../types'
+import { TRAILER_1_ID, TRAILER_2_ID } from './facts'
+
+const yt = (id: string, file: string) => `https://i.ytimg.com/vi/${id}/${file}`
+
+/** Official stills, embedded directly from Rockstar's YouTube uploads (thumbnail frames). */
+export const GALLERY: GalleryItem[] = [
+  {
+    id: 'gcover',
+    src: '/art/cover-landscape.jpg',
+    fallback: '/art/jason-lucia-landscape.webp',
+    alt: 'Official Grand Theft Auto VI cover art, landscape composition — revealed June 18, 2026',
+    caption: 'Official cover art — June 18, 2026',
+    trailer: 'June Reveal',
+  },
+  {
+    id: 'gkeyart',
+    src: '/art/jason-lucia-landscape.webp',
+    fallback: '/art/cover-landscape.jpg',
+    alt: 'New Jason and Lucia key art over the Vice City skyline at dusk',
+    caption: 'Jason & Lucia — new key art',
+    trailer: 'June Reveal',
+    tall: true,
+  },
+  {
+    id: 'g1',
+    src: yt(TRAILER_2_ID, 'maxresdefault.jpg'),
+    fallback: yt(TRAILER_2_ID, 'hqdefault.jpg'),
+    alt: 'Jason and Lucia in Vice City — GTA VI Trailer 2 key frame',
+    caption: 'Vice City, USA — Jason & Lucia',
+    trailer: 'Trailer 2',
+  },
+  {
+    id: 'g2',
+    src: yt(TRAILER_1_ID, 'maxresdefault.jpg'),
+    fallback: yt(TRAILER_1_ID, 'hqdefault.jpg'),
+    alt: 'Lucia in the Leonida Penitentiary interview — GTA VI Trailer 1 key frame',
+    caption: 'Leonida Penitentiary — where it begins',
+    trailer: 'Trailer 1',
+  },
+  {
+    id: 'g3',
+    src: yt(TRAILER_2_ID, 'hq1.jpg'),
+    fallback: yt(TRAILER_2_ID, 'hqdefault.jpg'),
+    alt: 'Neon-lit Vice City strip at night — GTA VI Trailer 2 still',
+    caption: 'Ocean Drive after dark',
+    trailer: 'Trailer 2',
+    tall: true,
+  },
+  {
+    id: 'g4',
+    src: yt(TRAILER_1_ID, 'hq1.jpg'),
+    fallback: yt(TRAILER_1_ID, 'hqdefault.jpg'),
+    alt: 'Sunset over the Leonida coastline — GTA VI Trailer 1 still',
+    caption: 'Leonida coastline',
+    trailer: 'Trailer 1',
+  },
+  {
+    id: 'g5',
+    src: yt(TRAILER_2_ID, 'hq2.jpg'),
+    fallback: yt(TRAILER_2_ID, 'hqdefault.jpg'),
+    alt: 'High-speed chase through the Keys — GTA VI Trailer 2 still',
+    caption: 'Trouble in the Keys',
+    trailer: 'Trailer 2',
+  },
+  {
+    id: 'g6',
+    src: yt(TRAILER_1_ID, 'hq2.jpg'),
+    fallback: yt(TRAILER_1_ID, 'hqdefault.jpg'),
+    alt: 'Vice City streets and crowds — GTA VI Trailer 1 still',
+    caption: 'Streets of Vice City',
+    trailer: 'Trailer 1',
+    tall: true,
+  },
+  {
+    id: 'g7',
+    src: yt(TRAILER_2_ID, 'hq3.jpg'),
+    fallback: yt(TRAILER_2_ID, 'hqdefault.jpg'),
+    alt: 'Jason and Lucia mid-heist — GTA VI Trailer 2 still',
+    caption: 'When an easy score goes wrong',
+    trailer: 'Trailer 2',
+  },
+  {
+    id: 'g8',
+    src: yt(TRAILER_1_ID, 'hq3.jpg'),
+    fallback: yt(TRAILER_1_ID, 'hqdefault.jpg'),
+    alt: 'Swamplands and airboats of Leonida — GTA VI Trailer 1 still',
+    caption: 'Deep Leonida',
+    trailer: 'Trailer 1',
+  },
+  {
+    id: 'g9',
+    src: yt(TRAILER_2_ID, 'sddefault.jpg'),
+    fallback: yt(TRAILER_2_ID, 'hqdefault.jpg'),
+    alt: 'Vice City skyline at golden hour — GTA VI Trailer 2 still',
+    caption: 'Golden hour over the bay',
+    trailer: 'Trailer 2',
+  },
+  {
+    id: 'g10',
+    src: yt(TRAILER_1_ID, 'sddefault.jpg'),
+    fallback: yt(TRAILER_1_ID, 'hqdefault.jpg'),
+    alt: 'Trailer 1 closing shot with the GTA VI logo',
+    caption: 'VI — the reveal',
+    trailer: 'Trailer 1',
+    tall: true,
+  },
+]

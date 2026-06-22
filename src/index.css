@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: #030308;
+  }
+  body {
+    @apply bg-void font-body text-white antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(255, 45, 123, 0.55);
+    color: #fff;
+  }
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07070f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(#00f0ff44, #ff2d7b44);
+    border-radius: 9px;
+  }
+}
+
+@layer components {
+  /* ---- Glassmorphism ---- */
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 10px 40px -18px rgba(0, 0, 0, 0.9);
+  }
+  .glass-cyan {
+    @apply glass border-neon-cyan/25;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 0 28px -10px rgba(0, 240, 255, 0.35);
+  }
+  .glass-pink {
+    @apply glass border-neon-pink/25;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 0 28px -10px rgba(255, 45, 123, 0.4);
+  }
+  .glass-amber {
+    @apply glass border-neon-amber/25;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 0 28px -10px rgba(255, 184, 0, 0.35);
+  }
+
+  /* ---- Neon text glow ---- */
+  .glow-cyan {
+    color: #00f0ff;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 42px rgba(0, 240, 255, 0.35);
+  }
+  .glow-pink {
+    color: #ff2d7b;
+    text-shadow: 0 0 10px rgba(255, 45, 123, 0.7), 0 0 42px rgba(255, 45, 123, 0.35);
+  }
+  .glow-gold {
+    color: #ffb800;
+    text-shadow: 0 0 10px rgba(255, 184, 0, 0.7), 0 0 42px rgba(255, 184, 0, 0.35);
+  }
+
+  /* ---- Gradient text (+ shimmer variant) ---- */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(100deg, #00f0ff 0%, #ff2d7b 45%, #ffb800 90%);
+  }
+  .gradient-text-shimmer {
+    @apply gradient-text animate-shimmer;
+    background-size: 200% auto;
+  }
+
+  /* ---- Eyebrow label ---- */
+  .eyebrow {
+    @apply font-tech text-[11px] font-semibold uppercase tracking-[0.35em] text-neon-cyan/80 sm:text-xs;
+  }
+
+  /* ---- Clipped / skewed buttons ---- */
+  .btn-clip {
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  .btn-neon {
+    @apply btn-clip inline-flex min-h-[48px] items-center justify-center gap-2 px-7 py-3 font-tech text-xs font-bold uppercase tracking-[0.25em] transition-all duration-300;
+  }
+  .btn-neon-solid {
+    @apply btn-neon bg-gradient-to-r from-neon-pink to-neon-violet text-white;
+    box-shadow: 0 0 30px -6px rgba(255, 45, 123, 0.65);
+  }
+  .btn-neon-solid:hover {
+    box-shadow: 0 0 44px -4px rgba(255, 45, 123, 0.9);
+    transform: translateY(-2px);
+  }
+  .btn-neon-ghost {
+    @apply btn-neon border border-neon-cyan/40 bg-neon-cyan/5 text-neon-cyan;
+  }
+  .btn-neon-ghost:hover {
+    @apply bg-neon-cyan/15;
+    box-shadow: 0 0 34px -8px rgba(0, 240, 255, 0.8);
+  }
+
+  /* ---- Neon divider between sections ---- */
+  .neon-divider {
+    @apply relative mx-auto h-px w-full max-w-6xl;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), rgba(255, 45, 123, 0.5), transparent);
+  }
+  .neon-divider::after {
+    content: '';
+    @apply absolute inset-x-0 -top-px h-[3px] blur-[3px];
+    background: inherit;
+  }
+
+  /* ---- Scanlines overlay (apply to a positioned parent) ---- */
+  .scanlines::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 z-10;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 3px,
+      rgba(0, 0, 0, 0.22) 3px,
+      rgba(0, 0, 0, 0.22) 4px
+    );
+  }
+
+  /* ---- Vignette ---- */
+  .vignette::after {
+    content: '';
+    @apply pointer-events-none absolute inset-0 z-10;
+    background: radial-gradient(ellipse at center, transparent 52%, rgba(3, 3, 8, 0.85) 100%);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .pause-anim {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Particle drift — referenced from inline styles, so defined here (Tailwind only
+   emits keyframes used by animate-* utilities) */
+@keyframes riseUp {
+  0% {
+    transform: translateY(110vh) scale(0.6);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-12vh) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Calm everything down for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

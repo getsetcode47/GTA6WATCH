@@ -1,0 +1,22 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Pin Node to the version in .nvmrc (Amplify images ship nvm).
+        - nvm use $(cat .nvmrc) || nvm install $(cat .nvmrc)
+        - node -v
+        # Clean, reproducible install from the lockfile.
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    # Vite outputs here; this becomes the deploy root.
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .vite/**/*

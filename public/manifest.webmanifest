@@ -1,0 +1,18 @@
+{
+  "name": "GTAVI.watch — GTA VI Countdown",
+  "short_name": "GTAVI.watch",
+  "description": "Unofficial fan countdown hub for Grand Theft Auto VI — live countdown to November 19, 2026, trailers, news, and cast.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#030308",
+  "theme_color": "#030308",
+  "categories": ["games", "entertainment", "news"],
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
